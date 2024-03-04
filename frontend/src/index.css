@@ -1,3 +1,10 @@
+:root {
+
+  --dark: oklch(24.78% 0 0);
+  --light: oklch(98.23% 0.003 84.56);
+  --bg-dark: oklch(36.65% 0 0);
+}
+
 * {
   min-width: 0;
   font: inherit;
@@ -10,6 +17,11 @@
 body {
   margin: 0;
   min-height: 100dvh;
+  background-color: var(--light);
+  color: var(---dark);
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {

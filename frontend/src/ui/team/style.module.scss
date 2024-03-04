@@ -1,0 +1,14 @@
+.team {
+
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 50px;
+    }
+    span {
+        font-size: 1.5rem;
+    }
+}

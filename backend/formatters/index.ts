@@ -1,5 +1,9 @@
 export const getPath = (url: string) => {
     const urlObject = new URL(url);
 
-    return urlObject.pathname.substring(5)
+    const [,, league, date] = urlObject.pathname.split('/')
+
+    console.log(league, date)
+
+    return { league, date }
 }

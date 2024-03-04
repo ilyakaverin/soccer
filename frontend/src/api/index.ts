@@ -12,8 +12,8 @@ export const soccerApi = createApi({
   }),
   endpoints: builder => ({
   Fixtures: builder.query({
-      query: () => ({
-        url: `/today`,
+      query: ({ path }) => ({
+        url: `${path}`,
       }),
     }),
   }),

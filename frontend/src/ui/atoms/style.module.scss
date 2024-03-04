@@ -1,0 +1,10 @@
+.select {
+    display: flex;
+    flex-direction: column;
+
+    select {
+        border: unset;
+        background-color: transparent;
+        outline: 0;
+    }
+}

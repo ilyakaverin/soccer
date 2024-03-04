@@ -6,13 +6,18 @@ import store from './store/index.ts';
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate
 } from "react-router-dom";
 import { MainPage } from './pages/main/index.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/:league/:date",
     element: <MainPage />,
+  },
+  {
+    path: "/",
+    element: <Navigate to="/BL1/today" replace={true} />,
   },
 ]);
 

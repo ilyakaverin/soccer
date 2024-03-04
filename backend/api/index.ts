@@ -1,8 +1,9 @@
 import dayjs from "dayjs";
+import { ICompetitionCode, IDateOption } from "../interfaces";
 
 const BASE = 'https://api.football-data.org/v4'
 const currentDate = dayjs().format('YYYY-MM-DD');
-const yesterday = dayjs().subtract(1, 'day');
+const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD');
 const tomorrow = dayjs().add(1, 'day').format('YYYY-MM-DD');
 
 const BASE_PARAMETERS =  {
@@ -11,16 +12,26 @@ const BASE_PARAMETERS =  {
 }
 
 
-const links: Record<string, string> = {
+const links = (league: ICompetitionCode, path: string): string=> {
 
-    today: `competitions/${2021}/matches?dateFrom=${currentDate}&dateTo=${currentDate}`,
-    yesterday: `competitions/${2021}/matches?dateFrom=${yesterday}&dateTo=${yesterday}`
+    const data: Record<string, string> = {
 
+        today: `competitions/${ICompetitionCode[league]}/matches?dateFrom=${currentDate}&dateTo=${currentDate}`,
+        yesterday: `competitions/${ICompetitionCode[league]}/matches?dateFrom=${yesterday}&dateTo=${yesterday}`,
+        tomorrow: `competitions/${ICompetitionCode[league]}/matches?dateFrom=${tomorrow}&dateTo=${tomorrow}`
+    
+    }
+
+    return data[path]
 } 
 
-export const getData = async (path: string) => {
+export const getData = async ( league: ICompetitionCode , date: IDateOption ) => {
 
-    const response = await fetch(`${BASE}/${links[path]}`, BASE_PARAMETERS);
+    const leagueParam = league ?? ICompetitionCode.BL1 ;
+
+    const dateParam = date ?? IDateOption.today
+
+    const response = await fetch(`${BASE}/${links(leagueParam, dateParam)}`, BASE_PARAMETERS);
 
     return await response.json()
 

@@ -9,7 +9,9 @@ export const scheduleOrScore = (info) => {
             return `${info.score.halfTime.home} - ${info.score.halfTime.away}`
         case 'SCHEDULED':
         case 'TIMED':
-            return dayjs(info.utcDate).format('H-mm')
+            return dayjs(info.utcDate).format('H-mm');
+        case 'PAUSED':
+            return 'break'
 
     }
 }

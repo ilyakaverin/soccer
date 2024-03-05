@@ -8,7 +8,7 @@ export interface ICompetition {
 
 export enum ICompetitionCodeDescription {
     // WC = "FIFA World Cup",
-    // CL = "UEFA Champions League",
+    CL = "UEFA Champions League",
     BL1 = "Bundesliga",
     // DED = "Eredivisie",
     // BSA = "Campeonato Brasileiro Série A",

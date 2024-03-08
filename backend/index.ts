@@ -14,7 +14,7 @@ Bun.serve({
     async fetch(req) {
 
 
-        const { league, date} = getPath(req.url);
+        const { league, date } = getPath(req.url);
 
 
         const data = await getData(league, date);

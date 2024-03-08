@@ -1,4 +1,3 @@
-export const NotFound = () => {
+import React from 'react'
 
-    return '404 '
-}
+export const NotFound: React.FC = () => <span>404 </span>

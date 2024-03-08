@@ -1,8 +1,8 @@
-import styles from './style.module.scss';
+import React from 'react'
+import styles from './style.module.scss'
 
-export const Loader = ({ text }) => {
-
-    return (
-        <div className={styles.loader}>{text}</div>
-    )
+interface IStubProps {
+  text: string
 }
+
+export const Stub: React.FC<IStubProps> = ({ text }) => <div className={styles.stub}>{text}</div>

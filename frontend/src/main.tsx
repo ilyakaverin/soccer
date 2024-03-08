@@ -9,15 +9,21 @@ import {
   Navigate
 } from "react-router-dom";
 import { MainPage } from './pages/main/index.tsx';
+import { NotFound } from './pages/not-found/index.tsx';
+import { CheckPath } from './pages/main/route-wrapper.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/:league/:date",
-    element: <MainPage />,
+    element: <CheckPath><MainPage /></CheckPath>,
   },
   {
     path: "/",
     element: <Navigate to="/BL1/today" replace={true} />,
+  },
+  {
+    path: "/*",
+    element: <NotFound />,
   },
 ]);
 

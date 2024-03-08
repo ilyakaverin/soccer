@@ -1,5 +1,6 @@
 import { useFixturesQuery } from "../../api";
 import { ICompetitionCodeDescription, IDateOption } from "../../interfaces";
+import { Loader } from "../../ui/atoms/loader";
 import { Select } from "../../ui/atoms/select";
 import { MatchCard } from "../../ui/match-card";
 import styles from "./style.module.scss";
@@ -8,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 export const MainPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const { data, isFetching } = useFixturesQuery({ path: location.pathname });
 
   const locationArray = location.pathname.split('/');
@@ -61,8 +63,8 @@ export const MainPage = () => {
         />
       </section>
       {isFetching
-        ? "loading"
-        : data.matches.length > 0 ? data.matches.map((item) => <MatchCard key={item.id} info={item} />) : 'no matches'}
+        ? <Loader text={'loading'} />
+        : data.matches.length > 0 ? data.matches.map((item) => <MatchCard key={item.id} info={item} />) : <Loader text={'no matches'} />}
     </article>
   );
 };

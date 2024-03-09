@@ -17,7 +17,8 @@ export const Select: React.FC<ISelect> = ({
   name,
   onChange,
   defaultValue
-}) => (
+}) => {
+  return (
     <div className={styles.select}>
       <select
         defaultValue={defaultValue}
@@ -32,4 +33,5 @@ export const Select: React.FC<ISelect> = ({
         ))}
       </select>
     </div>
-)
+  )
+}

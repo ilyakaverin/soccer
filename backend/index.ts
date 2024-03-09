@@ -1,5 +1,5 @@
 import figlet from "figlet";
-import { getData } from "./api";
+import { getFixtures, getMatch } from "./api";
 import { getPath } from "./formatters";
 
 
@@ -13,11 +13,19 @@ Bun.serve({
     port: 3000,
     async fetch(req) {
 
+        let data;
 
-        const { league, date } = getPath(req.url);
+        const { league, date, matchId } = getPath(req.url);
 
+        console.log(matchId)
 
-        const data = await getData(league, date);
+        if(matchId) {
+            data = await getMatch(matchId)
+        } else {
+            data = await getFixtures(league, date);
+        }
+
+        
 
         return new Response(JSON.stringify(data), parameters);
     },

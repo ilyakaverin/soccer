@@ -11,6 +11,7 @@ import store from './store/index.ts'
 import { MainPage } from './pages/main/index.tsx'
 import { NotFound } from './pages/not-found/index.tsx'
 import { CheckPath } from './pages/main/route-wrapper.tsx'
+import { MatchDetails } from 'pages/match-details/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigate to="/BL1/today" replace />
+  },
+  {
+    path: '/match/:id',
+    element: <MatchDetails />
   },
   {
     path: '/*',

@@ -25,7 +25,7 @@ const links = (league: ICompetitionCode, path: string): string=> {
     return data[path]
 } 
 
-export const getData = async ( league: ICompetitionCode , date: IDateOption ) => {
+export const getFixtures = async ( league: ICompetitionCode , date: IDateOption ) => {
 
     const leagueParam = league ?? ICompetitionCode.BL1 ;
 
@@ -35,4 +35,9 @@ export const getData = async ( league: ICompetitionCode , date: IDateOption ) =>
 
     return await response.json()
 
+}
+export const getMatch = async (id: string) => {
+    const response = await fetch(`${BASE}/matches/${id}`)
+
+    return await response.json()
 }

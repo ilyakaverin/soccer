@@ -16,9 +16,5 @@
     .controls {
         display: flex;
         justify-content: space-between;
-
-        @media (max-width: 500px) {
-            margin: 15px;
-          }
     }
 }

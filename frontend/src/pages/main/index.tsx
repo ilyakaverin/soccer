@@ -1,6 +1,6 @@
 import { useFixturesQuery } from 'api'
 import { ICompetitionCodeDescription, IDateOption } from 'interfaces'
-import { Stub } from 'ui/atoms/loader'
+import { Stub } from 'ui/atoms/stub'
 import { Select } from 'ui/atoms/select'
 import { MatchCard } from 'ui/match-card'
 import { useLocation, useNavigate } from 'react-router-dom'

@@ -14,8 +14,13 @@ export const soccerApi = createApi({
       query: ({ path }) => ({
         url: `${path}`
       })
+    }),
+    Match: builder.query({
+      query: ({ id }) => ({
+        url: `${id}`
+      })
     })
   })
 })
 
-export const { useFixturesQuery } = soccerApi
+export const { useFixturesQuery, useMatchQuery } = soccerApi

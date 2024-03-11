@@ -2,9 +2,7 @@ import dayjs from "dayjs";
 import { ICompetitionCode, IDateOption } from "../interfaces";
 
 const BASE = 'https://api.football-data.org/v4'
-const currentDate = dayjs().format('YYYY-MM-DD');
-const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD');
-const tomorrow = dayjs().add(1, 'day').format('YYYY-MM-DD');
+
 
 const BASE_PARAMETERS =  {
     method: "GET",
@@ -13,6 +11,10 @@ const BASE_PARAMETERS =  {
 
 
 const links = (league: ICompetitionCode, path: string): string=> {
+
+    const currentDate = dayjs().format('YYYY-MM-DD');
+const yesterday = dayjs().subtract(1, 'day').format('YYYY-MM-DD');
+const tomorrow = dayjs().add(1, 'day').format('YYYY-MM-DD');
 
     const data: Record<string, string> = {
 

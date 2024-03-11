@@ -17,8 +17,6 @@ Bun.serve({
 
         const { league, date, matchId } = getPath(req.url);
 
-        console.log(matchId)
-
         if(matchId) {
             data = await getMatch(matchId)
         } else {
